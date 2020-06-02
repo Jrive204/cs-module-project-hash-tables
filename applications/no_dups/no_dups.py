@@ -1,5 +1,30 @@
 def no_dups(s):
-    # Your code here
+    # Your code
+    #List to hold non duplicates 
+    lst_of_keys = []
+    if s == '':
+        # Return empty string if it is given
+        return ''
+
+    # Split string input into a list
+    l = s.split(' ')
+
+    # Turning array into dict as keys removes duplicates
+    a = dict.fromkeys(l)
+    for key in a.keys():
+        # Loops keys and appends them to List of keys
+        lst_of_keys.append(key)
+
+        #Join it all for the return with a space between ' ' in order to maintain space distance
+    return ' '.join(lst_of_keys)
+
+
+    # l = set(l)
+    # print(l,"set")
+    # l = ' '.join(l)
+    # print(l,"join")
+    # print(l)
+    # return key
 
 
 

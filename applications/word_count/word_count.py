@@ -1,10 +1,25 @@
+import re
+
+cache = {}
 def word_count(s):
-    # Your code here
+    # Replace invalid chars   
+    name= s.replace('"','').replace(':','').replace(';','').replace(',','').replace('.','').replace('-','').replace('+','').replace('=','').replace('/','').replace("|",'').replace('[','').replace(']','').replace('{','').replace('}','').replace('(','').replace(')','').replace('*','').replace('^','').replace('&','').replace('\\','')
+    # if name is empty after invalid chars are gone
+    if name =='':
+        return {}
+    split = name.lower().split()
+    words = {i:split.count(i) for i in split}
+    print(words)
+    return words
+
+
+
 
 
 
 if __name__ == "__main__":
-    print(word_count(""))
+    print(word_count(""),"test")
     print(word_count("Hello"))
     print(word_count('Hello, my cat. And my cat doesn\'t say "hello" back.'))
     print(word_count('This is a test of the emergency broadcast network. This is only a test.'))
+    print(word_count('":;,.-+=/\\|[]{}()*^&'))
